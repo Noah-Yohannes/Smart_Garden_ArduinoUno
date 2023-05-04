@@ -1,9 +1,10 @@
 # Smart_Garden_ArduinoUno
 This is a Smart Garden project designed using Arduino Uno and sensors. 
 
-## The objective of this project is to automate tending to plants, especially seedlings. Seedings are affected by unfavourable weather conditions. To safeguard a seedling's growth and to save human effort smart garden could be used. 
+The objective of this project is to automate tending to plants, especially seedlings. Seedings are affected by unfavourable weather conditions. To safeguard a seedling's growth and to save human effort smart garden could be used. 
 
-Components Used: Arduino Uno, DHT11 sensor, Soil moisture sensor, DC water pump, LCD Display, Servo SG90 9g, 5V battery, one channel relay.
+#Components Used
+Arduino Uno, DHT11 sensor, Soil moisture sensor, DC water pump, LCD Display, Servo SG90 9g, 5V battery, one channel relay.
 
 
 Smart garden employs two sensors soil moisture sensor and DHT11 sensor (to read the temperature of the garden). The soil moisture sensor gives analog values, moistureValue, indicating the moisture levels. However, to make it more comprehensible we mapt it into the moisturePercent variable, a variable that converts the analog readings into a scale of 100.
