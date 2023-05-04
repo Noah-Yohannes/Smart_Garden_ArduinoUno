@@ -7,7 +7,7 @@ The objective of this project is to automate tending to plants, especially seedl
 
 Arduino Uno, DHT11 sensor, Soil moisture sensor, DC water pump, LCD Display, Servo SG90 9g, 5V battery, one channel relay.
 
-
+## Description
 Smart garden employs two sensors soil moisture sensor and DHT11 sensor (to read the temperature of the garden). The soil moisture sensor gives analog values, moistureValue, indicating the moisture levels. However, to make it more comprehensible we mapt it into the moisturePercent variable, a variable that converts the analog readings into a scale of 100.
 ```
   int moistureValue = analogRead(SoilMoisturePIN);             //read the analog soil moisture readings from the sensor
