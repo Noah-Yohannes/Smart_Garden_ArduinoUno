@@ -26,13 +26,10 @@ if (moistureThreshold == LOW) {
     digitalWrite(waterPump, HIGH);  //the soil is dry to turn the waterpump on, water plants 
   }
 ```
+The DHT11 sensor gives temperature reading of the temperature of the surround air in the garden. If it exceeds the optimal temperature then a shade can cover the plants. Otherwise, it shall remain open. This shed shall be controlled by servo motors and the effect of gravity. The shed remains open when the servo blades are at 180 degrees. To close the shades the blades are positioned at 0 degree, and thus gravity pulls the shade down.
 
 ## Contributors
 Meron Yakob
-
-The DHT11 sensor gives temperature reading of the temperature of the surround air in the garden. If it exceeds the optimal temperature then a shade can cover the plants. Otherwise, it shall remain open. This shed shall be controlled by servo motors and the effect of gravity. The shed remains open when the servo blades are at 180 degrees. To close the shades the blades are positioned at 0 degree, and thus gravity pulls the shade down.
-
-
 
 
 
