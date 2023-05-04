@@ -24,6 +24,7 @@ LiquidCrystal_I2C lcd(0x27, 16, 2);        //specifying the I2C address, Columns
 //servo
 Servo myservo;  // create servo object
 
+//setup() method starts here
 void setup() {
   Serial.begin(9600);       //setting a clock speed for the communications that involve I2C
   dht.begin();             //dht sensor starts sensing
