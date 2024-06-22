@@ -30,6 +30,7 @@ The DHT11 sensor gives temperature reading of the temperature of the surround ai
 
 ## Contributors
 Meron Yakob
+
 Noah Yohannes
 
 
