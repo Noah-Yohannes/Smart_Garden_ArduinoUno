@@ -1,11 +1,33 @@
-# Smart_Garden_ArduinoUno
-This is a Smart Garden project designed using Arduino Uno and sensors. 
+# Smart_GardeSmart Garden: Autonomous Seedling Management using Arduino Uno
+
+## 📖 Project Description
+
+The Smart Garden is an automated environmental control system designed using the Arduino Uno. Its primary mission is to safeguard high-sensitivity seedlings by maintaining a stable micro-climate, reducing human effort, and protecting plants from unfavorable weather conditions.
+
+By integrating real-time sensory data with mechanical actuators, the system automates two critical gardening tasks:
+
+- Precision Irrigation: Uses soil moisture sensing to trigger a DC water pump only when the substrate is dry, preventing both dehydration and root rot.
+- Climate Shielding: Employs a DHT11 sensor to monitor ambient temperature. If heat levels exceed the seedling's safety threshold, a servo-controlled shade is deployed to prevent wilting.
+
+The system provides transparency through a live LCD dashboard and an audible buzzer that signals whenever the protective shade adjusts its position.
+
+
 
 The objective of this project is to automate tending to plants, especially seedlings. Seedings are affected by unfavourable weather conditions. To safeguard a seedling's growth and to save human effort smart garden could be used. 
 
-## Components Used
+## System Architecture 
+System circuit schematics: 
+![circuit schematics](media/circuit_schematics.png)
+Software flowchart: 
+![software system flowchart](media/software_flowchart.png)
 
-Arduino Uno, DHT11 sensor, Soil moisture sensor, DC water pump, LCD Display, Servo SG90 9g, 5V battery, one channel relay.
+## Components Used
+- Microcontroller: Arduino Uno
+- Sensors: DHT11 sensor (temperature/humidity), Analog Soil Moisture Probe
+- Control: 1-channel 5v Relay Module
+- Output: 16x2 LCD display
+- Power:  4 x 1.5 V DC batteries
+
 
 ## Description
 Smart garden employs two sensors soil moisture sensor and DHT11 sensor (to read the temperature of the garden). The soil moisture sensor gives analog values, moistureValue, indicating the moisture levels. However, to make it more comprehensible we mapt it into the moisturePercent variable, a variable that converts the analog readings into a scale of 100.
