@@ -1,4 +1,4 @@
-# Smart_GardeSmart Garden: Autonomous Seedling Management using Arduino Uno
+# Smart_Garden_ArduinoUno: Autonomous Seedling Management using Arduino Uno
 
 ## Project Description
 
