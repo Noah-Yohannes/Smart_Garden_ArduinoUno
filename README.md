@@ -1,6 +1,6 @@
 # Smart_GardeSmart Garden: Autonomous Seedling Management using Arduino Uno
 
-## 📖 Project Description
+## Project Description
 
 The Smart Garden is an automated environmental control system designed using the Arduino Uno. Its primary mission is to safeguard high-sensitivity seedlings by maintaining a stable micro-climate, reducing human effort, and protecting plants from unfavorable weather conditions.
 
@@ -17,9 +17,41 @@ The objective of this project is to automate tending to plants, especially seedl
 
 ## System Architecture 
 System circuit schematics: 
-![circuit schematics](media/circuit_schematics.png)
+![circuit schematics](media/circuit_schematics.png)       
 Software flowchart: 
-![software system flowchart](media/software_flowchart.png)
+![software system flowchart](media/software_logic_flowchart.png)
+
+## 🛠️ Implementation Details
+1. Irrigation & Soil Moisture Logic
+
+The system monitors hydration using two distinct methods from the soil moisture sensor:
+- Analog Mapping: Raw values (0−1023) are mapped to a 0−100% scale for user-friendly monitoring.
+- Digital Threshold: Uses a pre-set threshold on the sensor to trigger the pump. A value of 0 (LOW) indicates moist soil, while 1 (HIGH) indicates dry soil.
+
+```cpp
+// Read analog value and map to percentage
+int moistureValue = analogRead(SoilMoisturePIN);
+int moisturePercent = map(moistureValue, 0, 1023, 0, 100); 
+
+// Digital trigger for pump control
+int moistureThreshold = digitalRead(SoilMoistureThresholdPIN); 
+
+if (moistureThreshold == LOW) {   
+    lcd.print("OFF");
+    digitalWrite(waterPump, LOW);  // Soil is moist; pump off
+} else {
+    lcd.print("ON ");
+    digitalWrite(waterPump, HIGH); // Soil is dry; pump on
+}
+```
+
+2. Temperature & Shade Control
+
+The DHT11 sensor tracks the ambient air temperature. To protect seedlings from heat stress:
+
+- Mechanism: Two servo motors control the shade.
+- Operation: The shade remains open when the servo blades are at 180∘. If the temperature exceeds the optimal limit, the servos rotate to 0∘, allowing gravity to pull the protective shade down.
+- Feedback: An LCD displays the live temperature and pump state, while a buzzer sounds during any shade transition. 
 
 ## Components Used
 - Microcontroller: Arduino Uno
@@ -29,26 +61,6 @@ Software flowchart:
 - Power:  4 x 1.5 V DC batteries
 
 
-## Description
-Smart garden employs two sensors soil moisture sensor and DHT11 sensor (to read the temperature of the garden). The soil moisture sensor gives analog values, moistureValue, indicating the moisture levels. However, to make it more comprehensible we mapt it into the moisturePercent variable, a variable that converts the analog readings into a scale of 100.
-```
-  int moistureValue = analogRead(SoilMoisturePIN);             //read the analog soil moisture readings from the sensor
-  Serial.println(moistureValue);
-  int moisturePercent = map(moistureValue, 0, 1023, 0, 100);       //mapping original values into percentile 
-  int moistureThreshold = digitalRead(SoilMoistureThresholdPIN);  // a digital value provided by the sensor itself that decides if a soil is moist or not
- ``` 
- The moistureThreshold variable reads digtally from the soilMoistureThresholdPIN. This value comes set with the sensor to make it easy for users. The output gives an output (moistureThreshold) int values of 0 or 1. A value of 0 means the soil is moist, while a value of 1 means the soil is dry. These values come already set in the sensor. 
- Based on the moistureThreshold variable we can determine when to turn on the DC water pump on and when to turn it off.
- ```
-if (moistureThreshold == LOW) {   
-    lcd.print("OFF");
-    digitalWrite(waterPump, LOW);  //the soil is moist to turn the waterpump off, no watering 
-  } else {
-    lcd.print("ON ");
-    digitalWrite(waterPump, HIGH);  //the soil is dry to turn the waterpump on, water plants 
-  }
-```
-The DHT11 sensor gives temperature reading of the temperature of the surround air in the garden. If it exceeds the optimal temperature then a shade can cover the plants. Otherwise, it shall remain open. This shed shall be controlled by servo motors and the effect of gravity. The shed remains open when the servo blades are at 180 degrees. To close the shades the blades are positioned at 0 degree, and thus gravity pulls the shade down.
 
 ## Contributors
 Meron Yakob
